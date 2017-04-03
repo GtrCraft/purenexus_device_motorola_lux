@@ -12,10 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/motorola/lux/full_lux.mk)
-
-# Inherit AOSP common stuff
-$(call inherit-product, vendor/aosp/common.mk)
+$(call inherit-product, device/motorola/lux/device.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -31,6 +28,5 @@ PRODUCT_RELEASE_NAME := lux
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="Moto X Play"
-    
-# Build Magisk
-DEFAULT_ROOT_METHOD := magisk
+
+$(call inherit-product-if-exists, vendor/motorola/lux/lux-vendor.mk)
